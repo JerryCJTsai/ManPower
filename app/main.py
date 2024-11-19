@@ -4,6 +4,7 @@ import sys
 
 
 if __name__ == '__main__':
+    print("Hello")
     app = QApplication(sys.argv)
     win = DemoView()
     win.show()
