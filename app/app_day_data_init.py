@@ -24,9 +24,9 @@ next_year = current_year + 1
 # print(f"日期:{current_data}")
 # print(f"月份:{current_month}")
 # print(f"年度:{current_year}")
-# print(f'type:{type(current_year)}')
+# print(f"type:{type(current_year)}")
 # str_current_year = str(current_year)
-# print(f'type:{type(str_current_year)}')
+# print(f"type:{type(str_current_year)}")
 
 
 # 獲取假日資料，並檢查目錄下有無存在資料
@@ -40,8 +40,9 @@ current_year_url = 'https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/%s.jso
 next_year_file = '%s.json' % str(next_year)
 next_year_url = 'https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/%s.json' % str(next_year)
 
+
 # 定義產生json資料
-def create_year_json(url, file_name):
+def create_year_json(url, file_name):   # 編碼規範函數上面必須留兩行空白
     url_response = requests.get(url)
     # 確認請求成功
     if url_response.status_code == 200:  # 請求資料成功
@@ -63,7 +64,7 @@ if os.path.exists(current_year_file):  # 檢查目錄下有無存在 year.json
     print(json.dumps(r_current_year_jdata, ensure_ascii=False, indent=4))  # ensure設定確保在輸出時不會將非ASCII字符轉換為ASCII編碼
 
 else:
-    create_year_json(current_year_file, current_year_url)
+    create_year_json(current_year_url, current_year_file)
 
 # 如果當前月份是12月，則檢查並下載下一年的資料
 if current_month == 12:
